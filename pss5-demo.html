@@ -769,8 +769,14 @@ function init_all()
     		<INPUT TYPE="button" class="ButtonPlus_3" NAME="ButtonMinus3" VALUE="+ 0.3"  onClick="ButtonPlus03();" >
     	</div>
  		
-			<INPUT TYPE='submit' class='Button_SEND' NAME='ButtonSEND' VALUE= "SEND" onClick='ButtonSend();' >
-			<INPUT TYPE='submit' class='Button_RELOAD' NAME='ButtonRELOAD' VALUE="RESET" onClick='ButtonReload();' >
+			<INPUT TYPE='submit' class='Button_SEND' NAME='ButtonSEND' VALUE= "SEND" 
+				style="pointer-events:none; color: transparent;
+        text-shadow: 0 0 8px #000;"
+				onClick='ButtonSend();' >
+			<INPUT TYPE='submit' class='Button_RELOAD' NAME='ButtonRELOAD' VALUE="RESET" 
+				style="pointer-events:none; color: transparent;
+        text-shadow: 0 0 8px #000;"
+				onClick='ButtonReload();' >
 			";
 		
 	</form>
