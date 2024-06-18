@@ -411,6 +411,35 @@
 		}	
 
 
+	.Button_Line {
+	        border-radius:5px;
+			background:#CC0000;
+			border:5px;
+			font-size:3vh;
+			font-weight:bold;
+			color:#00000;
+			position: absolute;
+			right:2.5vw;
+			bottom:30vh;
+			width:12vw;
+			height:6vh;
+		}	
+		
+	.Button_Time {
+	        border-radius:5px;
+			background:#CC0000;
+			border:5px;
+			font-size:3vh;
+			font-weight:bold;
+			color:#00000;
+			position: absolute;
+			right:2.5vw;
+			bottom:23vh;
+			width:12vw;
+			height:6vh;
+		}			
+		
+
 	.Button_RELOAD {
 			-webkit-appearance: none;
 			-moz-box-shadow: -3px -4px 0px 0px #7c7c7c;
@@ -529,7 +558,11 @@ var presentation_D=1.00;
 
 var totalpoomsae=10.00;
 
-
+var Beom = false;
+var Hakdari = false;
+var Dwikubi = false;
+var Line = true;
+var Time = true;
 
 function ButtonP_1(id,p)
 {
@@ -743,20 +776,127 @@ var Tablica = new Array('A6-0.0','A6-0.1','A6-0.2','A6-0.3','A6-0.4','A6-0.5','A
  
 }
 
+function Button_B()
+{
+  //window.alert('Button Hakdari');
+  
+  if (Beom==true)
+  {
+   Beom = false;
+   document.getElementById('ButtonBeom').style.backgroundColor='#00CC00';
+   document.getElementById('ButtonBeom').value='Beom OK';
+  }
+  else
+  {
+   Beom = true;
+   document.getElementById('ButtonBeom').style.backgroundColor='#CC0000';  
+   document.getElementById('ButtonBeom').value='Beom Seogi';
+  }
+  
+
+}
+
+
+function Button_H()
+{
+  //window.alert('Button Hakdari');
+  
+  if (Hakdari==true)
+  {
+   Hakdari = false;
+   document.getElementById('ButtonHakdari').style.backgroundColor='#00CC00';
+   document.getElementById('ButtonHakdari').value='Hakdari OK';
+  }
+  else
+  {
+   Hakdari = true;
+   document.getElementById('ButtonHakdari').style.backgroundColor='#CC0000';  
+   document.getElementById('ButtonHakdari').value='Hakdari Seogi';
+  }
+  
+
+}
+
+
+function Button_D()
+{
+  //window.alert('Button Dwikubi');
+  
+  if (Dwikubi==true)
+  {
+   Dwikubi = false;
+   document.getElementById('ButtonDwikubi').style.backgroundColor='#00CC00';
+   document.getElementById('ButtonDwikubi').value='Dwikubi OK';
+  }
+  else
+  {
+   Dwikubi = true;
+   document.getElementById('ButtonDwikubi').style.backgroundColor='#CC0000';  
+   document.getElementById('ButtonDwikubi').value='Dwikubi Seogi';
+  }
+  
+
+}
+
+
+function Button_L()
+{
+  //window.alert('Button Dwikubi');
+  
+  if (Line==true)
+  {
+   Line = false;
+   document.getElementById('ButtonLine').style.backgroundColor='#CC0000';
+   document.getElementById('ButtonLine').value='Line ERR';
+  }
+  else
+  {
+   Line = true;
+   document.getElementById('ButtonLine').style.backgroundColor='#00C000';  
+   document.getElementById('ButtonLine').value='Line OK';
+  }
+  
+
+}
+
+
+
+function Button_T()
+{
+  //window.alert('Button Dwikubi');
+  
+  if (Time==true)
+  {
+   Time = false;
+   document.getElementById('ButtonTime').style.backgroundColor='#CC0000';
+   document.getElementById('ButtonTime').value='Time ERR';
+  }
+  else
+  {
+   Time = true;
+   document.getElementById('ButtonTime').style.backgroundColor='#00CC00';  
+   document.getElementById('ButtonTime').value='Time OK';
+  }
+  
+
+}
+
+
+
 
 
 function ButtonReload()
 	{
-      	document.points.a.value='nosave'; 
-		window.location.reload(true);
+      //	document.points.a.value='nosave'; 
+	  // window.location.reload(true);
  	}
 
 function ButtonSend()
 {
- 		document.points.acc.value = document.points.Accuracy.value;
- 		document.points.pre.value = document.points.Presentation.value;
- 		document.points.a.value='save'; 
- 		window.location.reload(true);	
+ 		//document.points.acc.value = document.points.Accuracy.value;
+ 		//document.points.pre.value = document.points.Presentation.value;
+ 		//document.points.a.value='save'; 
+ 		//window.location.reload(true);	
  }
 
 
@@ -850,6 +990,21 @@ function init_all()
         presentation_B=1.00;
         presentation_C=1.00;
         presentation_D=1.00;
+        
+        Hakdari = false;
+        Beom = false;
+        Dwikubi = false;
+        
+        Button_B();
+        Button_H();
+        Button_D();
+        
+        Line = false;
+        Time = false;
+        
+        Button_L();
+        Button_T();
+        
 	
 	}
 	
@@ -1066,12 +1221,23 @@ function init_all()
 </div>
 
 
-<INPUT TYPE='submit' class='Button_Beom' NAME='ButtonBeom' VALUE="Beom Seogi" onClick='ButtonReload();' >
-<INPUT TYPE='submit' class='Button_Hakdari' NAME='ButtonHakdari' VALUE="Hakdari Seogi" onClick='ButtonReload();' >
-<INPUT TYPE='submit' class='Button_Dwikubi' NAME='ButtonDwikubi' VALUE="Dwikubi Seogi" onClick='ButtonReload();' >
+<INPUT TYPE='button' class='Button_Beom' id='ButtonBeom' VALUE="Beom Seogi" onClick='Button_B();' >
+<INPUT TYPE="button" class="Button_Hakdari" id="ButtonHakdari" VALUE="Hakdari Seogi" onClick="Button_H();" >
+<INPUT TYPE='button' class='Button_Dwikubi' id='ButtonDwikubi' VALUE="Dwikubi Seogi" onClick='Button_D();' >
+
+<INPUT TYPE='button' class='Button_Line' id='ButtonLine' VALUE="Line OK" onClick='Button_L();' >
+<INPUT TYPE='button' class='Button_Time' id='ButtonTime' VALUE="Time OK" onClick='Button_T();' >
+
+
 	
-<INPUT TYPE='submit' class='Button_SEND' NAME='ButtonSEND' VALUE= "SEND" onClick='ButtonSend();' >
-<INPUT TYPE='submit' class='Button_RELOAD' NAME='ButtonRELOAD' VALUE="RESET" onClick='ButtonReload();' >
+<INPUT TYPE='submit' class='Button_SEND' NAME='ButtonSEND' VALUE= "SEND" 
+style="pointer-events:none; color: transparent;
+        text-shadow: 0 0 8px #000;"
+onClick='ButtonSend();' >
+<INPUT TYPE='submit' class='Button_RELOAD' NAME='ButtonRELOAD' VALUE="RESET" 
+style="pointer-events:none; color: transparent;
+        text-shadow: 0 0 8px #000;"
+onClick='ButtonReload();' >
 		
 	</form>
 	
